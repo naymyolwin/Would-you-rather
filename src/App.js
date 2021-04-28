@@ -1,5 +1,13 @@
+import "./App.css";
+import Header from "./Layout/Header";
+
 const App = () => {
-  return <div>Would You Rather</div>;
+  return (
+    <div className="App">
+      <Header />
+      Would You Rather
+    </div>
+  );
 };
 
 export default App;
