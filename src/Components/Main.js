@@ -1,11 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Done from "./Done";
+import NotDone from "./NotDone";
 
 const Main = () => {
-  const loggedInUser = useSelector((state) => state.loginUser.loginUser);
+  const authUser = useSelector((state) => state.authUser.authUser);
   return (
     <div>
-      <p>User Name : {loggedInUser}</p>
+      <h1>User Name : {authUser}</h1>
+      <Done />
+      <NotDone />
     </div>
   );
 };

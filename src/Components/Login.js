@@ -1,19 +1,19 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { loginUserActions } from "../store/login-slice";
+import { useDispatch } from "react-redux";
+import { authUserActions } from "../store/authUser-slice";
+import { users } from "../store/_DATA";
 
 const Login = () => {
-  const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch();
 
   const loginUserHandler = (userID) => {
-    dispatch(loginUserActions.userLoggedIn(userID));
+    dispatch(authUserActions.Login(userID));
   };
 
-  console.log(users);
   return (
     <div>
       <h1>LOGIN PAGE</h1>
+
       {Object.values(users).map((user) => (
         <p key={user.id} onClick={() => loginUserHandler(user.id)}>
           {user.name}

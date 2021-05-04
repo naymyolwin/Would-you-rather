@@ -6,12 +6,12 @@ import Main from "./Components/Main";
 import Header from "./Layout/Header";
 
 const App = () => {
-  const loginUser = useSelector((state) => state.loginUser.loginUser);
+  const authUser = useSelector((state) => state.authUser.authUser);
 
   return (
     <div className="App">
       <Header />
-      {loginUser === "" ? <Login /> : <Main />}
+      {authUser === "" ? <Login /> : <Main />}
     </div>
   );
 };

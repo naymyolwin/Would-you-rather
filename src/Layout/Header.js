@@ -1,12 +1,12 @@
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUserActions } from "../store/login-slice";
+import { authUserActions } from "../store/authUser-slice";
 
 const Header = () => {
-  const login = useSelector((state) => state.loginUser.loginUser);
+  const login = useSelector((state) => state.authUser.authUser);
   const dispatch = useDispatch();
   const logoutHandler = () => {
-    dispatch(loginUserActions.userLoggedOut());
+    dispatch(authUserActions.Logout());
   };
   return (
     <div className="Header">
@@ -17,11 +17,7 @@ const Header = () => {
       </div>
       <div>Leader Board</div>
       <div>
-        {login === "" ? (
-          <div>Login</div>
-        ) : (
-          <div onClick={logoutHandler}>Logout</div>
-        )}
+        {login === "" ? <div></div> : <div onClick={logoutHandler}>Logout</div>}
       </div>
     </div>
   );
