@@ -1,19 +1,17 @@
 import { useSelector } from "react-redux";
 
 import "./App.css";
+import Login from "./Components/Login";
+import Main from "./Components/Main";
 import Header from "./Layout/Header";
 
 const App = () => {
-  const users = useSelector((state) => state.users);
-  const questions = useSelector((state) => state.questions);
-
-  console.log(users);
-  console.log(questions);
+  const loginUser = useSelector((state) => state.loginUser.loginUser);
 
   return (
     <div className="App">
       <Header />
-      Would You Rather
+      {loginUser === "" ? <Login /> : <Main />}
     </div>
   );
 };
