@@ -1,9 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { authUserActions } from "../store/authUser-slice";
-import { users } from "../store/_DATA";
 
 const Login = () => {
+  const users = useSelector((state) => state.users.users);
+
   const dispatch = useDispatch();
 
   const loginUserHandler = (userID) => {
@@ -14,11 +15,12 @@ const Login = () => {
     <div>
       <h1>LOGIN PAGE</h1>
 
-      {Object.values(users).map((user) => (
-        <p key={user.id} onClick={() => loginUserHandler(user.id)}>
-          {user.name}
-        </p>
-      ))}
+      {users &&
+        Object.values(users).map((user) => (
+          <p key={user.id} onClick={() => loginUserHandler(user.id)}>
+            {user.name}
+          </p>
+        ))}
     </div>
   );
 };

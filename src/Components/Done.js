@@ -1,14 +1,10 @@
 import React from "react";
+//import { users, questions } from "../store/_DATA";
 
 const Done = () => {
-  const addQestionHandler = () => {
-    console.log("adding question");
-  };
-
   return (
     <div>
       <h1>DONE</h1>
-      <p onClick={addQestionHandler}>Add Question</p>
     </div>
   );
 };

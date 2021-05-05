@@ -1,5 +1,3 @@
-export let loginUser = "";
-
 export let users = {
   sarahedo: {
     id: "sarahedo",
