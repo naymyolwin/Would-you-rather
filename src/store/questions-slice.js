@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { questions } from "./_DATA";
 
 const questionsSlice = createSlice({
   name: "questions",
-  initialState: { questions },
+  initialState: { questions: {} },
   reducers: {
     addNewQuestionToQuestion(state, action) {
       const newQ = {
@@ -20,6 +19,9 @@ const questionsSlice = createSlice({
         },
       };
       state.questions[action.payload.id] = newQ;
+    },
+    initilizeData(state, action) {
+      state.questions = action.payload;
     },
   },
 });
