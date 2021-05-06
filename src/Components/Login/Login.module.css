@@ -1,0 +1,20 @@
+.Container {
+  margin: 5px auto;
+  width: 50%;
+  border: 2px solid gray;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: ghostwhite;
+  box-shadow: 1px 2px 5px gray;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+}

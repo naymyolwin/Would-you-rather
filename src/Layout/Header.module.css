@@ -1,0 +1,57 @@
+.Header {
+  padding: 20px;
+  background-color: #282c34;
+  height: 100px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: relative;
+}
+
+.Leaderboard {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.Logo {
+  margin: 0;
+  padding-left: 50px;
+  position: absolute;
+  top: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.Logout {
+  position: absolute;
+  top: 70%;
+  left: 100%;
+  padding-right: 200px;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 150px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.Name {
+  position: absolute;
+  top: 30%;
+  left: 100%;
+  padding-right: 250px;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 200px;
+  text-align: right;
+}
+
+.Link {
+  color: white;
+}
