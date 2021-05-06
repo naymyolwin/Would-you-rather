@@ -12,11 +12,11 @@ const questionsSlice = createSlice({
         timestamp: action.payload.timestamp,
         optionOne: {
           votes: [],
-          text: action.payload.optionOne,
+          text: action.payload.optionOne.text,
         },
         optionTwo: {
           votes: [],
-          text: action.payload.optionTwo,
+          text: action.payload.optionTwo.text,
         },
       };
       state.questions[action.payload.id] = newQ;

@@ -58,12 +58,14 @@ const AddQuestion = () => {
         </div>
       </form>
       <hr />
-      <p>{Object.keys(questions).length}</p>
+      <p>There are total {Object.keys(questions).length} questions</p>
       {Object.keys(questions).map((key) => {
         return <div key={key}> {key} </div>;
       })}
       <hr />
-      <p>{users[authUser].questions.length}</p>
+      <p>
+        {authUser} asked {users[authUser].questions.length}
+      </p>
     </div>
   );
 };
