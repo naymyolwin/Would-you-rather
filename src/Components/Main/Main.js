@@ -68,10 +68,9 @@ const Main = () => {
           </Link>
         ))}
       </div>
-
-      <button onClick={onClickVoteHandler} className={classes.fab}>
-        +
-      </button>
+      <Link to="/add">
+        <button className={classes.fab}>+</button>
+      </Link>
     </div>
   );
 };

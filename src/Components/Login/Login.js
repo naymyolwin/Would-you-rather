@@ -24,7 +24,13 @@ const Login = () => {
               key={user.id}
               onClick={() => loginUserHandler(user.id)}
             >
-              {user.name}
+              <img
+                className={classes.image}
+                src={user.avatarURL}
+                alt="User Avatar"
+              />
+
+              <div className={classes.name}>{user.name}</div>
             </div>
           ))}
       </Link>

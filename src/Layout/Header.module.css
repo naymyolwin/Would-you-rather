@@ -40,18 +40,40 @@
   cursor: pointer;
 }
 
-.Name {
+.NameContainer {
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
   position: absolute;
+  padding: 18px 0;
   top: 30%;
   left: 100%;
-  padding-right: 250px;
-
+  padding-right: 220px;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 200px;
+  width: 220px;
   text-align: right;
+}
+
+.Name {
+  padding: 18px 5px;
 }
 
 .Link {
   color: white;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+@media only screen and (max-width: 600px) {
+  .image {
+    display: none;
+  }
 }

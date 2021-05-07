@@ -1,0 +1,36 @@
+.Container {
+  width: 50%;
+  margin: 20px auto;
+  padding: 50px;
+  background-color: ghostwhite;
+  box-shadow: 1px 2px 5px gray;
+  border-radius: 15px;
+  align-content: center;
+  text-align: center;
+}
+
+.Input {
+  margin: 5px auto;
+  height: 30px;
+  width: 90%;
+  border-radius: 15px;
+  padding: 10px;
+  border-color: gray;
+
+  outline: none;
+}
+
+.Submit {
+  color: white;
+  font-weight: bold;
+  margin: 15px auto;
+  width: 40%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: slategrey;
+}
+
+.Title {
+  text-align: center;
+}
