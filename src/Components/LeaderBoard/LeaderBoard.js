@@ -17,13 +17,9 @@ const LeaderBoard = () => {
     return b[1] - a[1];
   });
 
-  console.log(topUsers);
-
-  topUsers.map((user) => console.log(user[0]));
-
   return (
     <div>
-      LEADER BOARD
+      <h2 className={classes.header}>LEADER BOARD</h2>
       {topUsers.map((user) => {
         return (
           <div key={user[0]} className={classes.Card}>
@@ -37,19 +33,12 @@ const LeaderBoard = () => {
               <div className={classes.asked}>Asked : {user[2]}</div>
               <div className={classes.answered}>Answered : {user[3]}</div>
             </div>
-            <div className={classes.score}>{user[1]}</div>
+            <div className={classes.score}>
+              <div className={classes.center}>{user[1]}</div>
+            </div>
           </div>
         );
       })}
-      {/* <div className={classes.Card}>
-        <div className={classes.image}></div>
-        <div className={classes.text}>
-          <div className={classes.name}>Name</div>
-          <div className={classes.asked}>Asked</div>
-          <div className={classes.answered}>Answered</div>
-        </div>
-        <div className={classes.score}></div>
-      </div> */}
     </div>
   );
 };

@@ -10,6 +10,13 @@ const usersSlice = createSlice({
     initilizeData(state, action) {
       state.users = action.payload;
     },
+    addAnswerToUser(state, action) {
+      const authedUser = action.payload.authedUser;
+      const qid = action.payload.qid;
+      const answer = action.payload.answer;
+
+      state.users[authedUser].answers[qid] = answer;
+    },
   },
 });
 

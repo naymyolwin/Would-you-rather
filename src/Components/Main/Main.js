@@ -24,10 +24,6 @@ const Main = () => {
     return new Date(b.timestamp) - new Date(a.timestamp);
   });
 
-  const onClickVoteHandler = () => {
-    console.log(notAnsweredQuestions);
-  };
-
   return (
     <div>
       <div className={classes.container}>
@@ -37,14 +33,12 @@ const Main = () => {
           <Link
             className={classes.Link}
             key={key.id}
-            to={`/questions/${key.id}`}
+            to={{ pathname: `/questions/${key.id}`, voted: "false" }}
           >
             <QuestionCard
-              qid={questions[key.id].id}
               user={users[questions[key.id].author].name}
               optionOne={questions[key.id].optionOne.text}
               optionTwo={questions[key.id].optionTwo.text}
-              onClickVoteHandler={onClickVoteHandler}
             />
           </Link>
         ))}
@@ -55,15 +49,12 @@ const Main = () => {
           <Link
             className={classes.Link}
             key={key.id}
-            to={`/questions/${key.id}`}
+            to={{ pathname: `/questions/${key.id}`, voted: "true" }}
           >
             <QuestionCard
-              key={key.id}
-              qid={questions[key.id].id}
               user={users[questions[key.id].author].name}
               optionOne={questions[key.id].optionOne.text}
               optionTwo={questions[key.id].optionTwo.text}
-              onClickVoteHandler={onClickVoteHandler}
             />
           </Link>
         ))}

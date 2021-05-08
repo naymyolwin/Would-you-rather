@@ -17,7 +17,7 @@ const Header = () => {
       </Link>
       <Link to="/leaderboard" className={classes.Link}>
         <div className={classes.Leaderboard}>
-          {login && <div>Leader Board</div>}
+          <div>Leader Board</div>
         </div>
       </Link>
       {login && (

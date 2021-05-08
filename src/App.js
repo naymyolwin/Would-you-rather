@@ -28,14 +28,14 @@ const App = () => {
           <Route exact path="/">
             {authUser === "" ? <Login /> : <Main />}
           </Route>
-          <Route path="questions/:question_id">
-            <QuestionDetail />
-          </Route>
           <Route path="/add">
             <AddQuestion />
           </Route>
           <Route path="/leaderboard">
             <LeaderBoard />
+          </Route>
+          <Route path="/questions/:question_id">
+            <QuestionDetail />
           </Route>
         </Switch>
       </div>

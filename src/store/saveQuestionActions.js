@@ -9,11 +9,10 @@ export const saveQuestion = (question) => {
     };
 
     try {
-      const response = await save(question);
-      if (!response.ok) {
-        dispatch(questionsActions.addNewQuestionToQuestion(response));
-        dispatch(usersActions.addQuestionToUser(response));
-      }
+      const response = await save();
+
+      dispatch(questionsActions.addNewQuestionToQuestion(response));
+      dispatch(usersActions.addQuestionToUser(response));
     } catch (error) {
       console.log("Something went wrong");
     }

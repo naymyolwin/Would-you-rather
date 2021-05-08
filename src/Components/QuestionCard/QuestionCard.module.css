@@ -11,5 +11,10 @@
 }
 
 .content {
-  padding: 5pxp;
+  padding: 5px;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
 }

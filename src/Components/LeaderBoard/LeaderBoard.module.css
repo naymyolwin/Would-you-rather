@@ -1,11 +1,15 @@
 .Card {
-  margin: 5px auto;
-  background-color: grey;
-  width: 50%;
+  margin: 25px auto;
+
+  width: 70%;
   height: 100px;
   display: flex;
   border-radius: 5px;
   box-shadow: 1px 2px 5px gray;
+}
+
+.header {
+  text-align: center;
 }
 
 .image {
@@ -13,34 +17,41 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: honeydew;
 }
 
 .text {
   margin: 10px 0;
   width: 50%;
   height: 80px;
-  background-color: hotpink;
 }
 
 .score {
+  display: flex;
+
   margin: 10px;
   width: 80px;
   height: 80px;
-  background-color: honeydew;
+}
+
+.center {
+  font-size: 2em;
+  font-weight: bold;
+
+  text-align: center;
+  padding: auto;
+  margin: auto;
 }
 
 .name {
+  font-weight: bold;
+  font-style: italic;
   padding: 5px;
-  background-color: khaki;
 }
 
 .asked {
   padding: 5px;
-  background-color: lawngreen;
 }
 
 .answered {
   padding: 5px;
-  background-color: lightseagreen;
 }
