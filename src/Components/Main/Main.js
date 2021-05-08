@@ -24,6 +24,8 @@ const Main = () => {
     return new Date(b.timestamp) - new Date(a.timestamp);
   });
 
+  //console.log(answeredQuestions);
+
   return (
     <div>
       <div className={classes.container}>
