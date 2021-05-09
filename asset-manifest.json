@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Would-you-rather/static/css/main.3f6ef85a.chunk.css",
+    "main.js": "/Would-you-rather/static/js/main.785075dd.chunk.js",
+    "main.js.map": "/Would-you-rather/static/js/main.785075dd.chunk.js.map",
+    "runtime-main.js": "/Would-you-rather/static/js/runtime-main.f6a87df5.js",
+    "runtime-main.js.map": "/Would-you-rather/static/js/runtime-main.f6a87df5.js.map",
+    "static/js/2.23d73664.chunk.js": "/Would-you-rather/static/js/2.23d73664.chunk.js",
+    "static/js/2.23d73664.chunk.js.map": "/Would-you-rather/static/js/2.23d73664.chunk.js.map",
+    "static/js/3.401ebe9e.chunk.js": "/Would-you-rather/static/js/3.401ebe9e.chunk.js",
+    "static/js/3.401ebe9e.chunk.js.map": "/Would-you-rather/static/js/3.401ebe9e.chunk.js.map",
+    "index.html": "/Would-you-rather/index.html",
+    "static/css/main.3f6ef85a.chunk.css.map": "/Would-you-rather/static/css/main.3f6ef85a.chunk.css.map",
+    "static/js/2.23d73664.chunk.js.LICENSE.txt": "/Would-you-rather/static/js/2.23d73664.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6a87df5.js",
+    "static/js/2.23d73664.chunk.js",
+    "static/css/main.3f6ef85a.chunk.css",
+    "static/js/main.785075dd.chunk.js"
+  ]
+}
