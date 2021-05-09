@@ -22,3 +22,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - user can log out and login with others available users.
 - if the user type something in the address bar will lead to login page before redirected to desired page.
 - if the desired page is unavailable, will redirect to not found page.
+
+## Example
+
+project live page
+https://naymyolwin.github.io/Would-you-rather/login
+
+## Author
+
+- Nay Myo Lwin ( Functionality and Design), Initial Database provided by Udcaity.
