@@ -23,6 +23,13 @@ const questionsSlice = createSlice({
     initilizeData(state, action) {
       state.questions = action.payload;
     },
+    addAnswerToQuestion(state, action) {
+      const authedUser = action.payload.authedUser;
+      const qid = action.payload.qid;
+      const answer = action.payload.answer;
+
+      state.questions[qid][answer].votes.push(authedUser);
+    },
   },
 });
 
