@@ -2,12 +2,16 @@ import classes from "./Main.module.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import QuestionCard from "../QuestionCard/QuestionCard";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Main = () => {
   const users = useSelector((state) => state.users.users);
   const authUser = useSelector((state) => state.authUser.authUser);
   const questions = useSelector((state) => state.questions.questions);
+
+  if (authUser === "") {
+    return <Redirect to="/login" />;
+  }
 
   const answeredQuestions = Object.keys(users[authUser].answers).map(
     (key) => questions[key]
@@ -23,8 +27,6 @@ const Main = () => {
   notAnsweredQuestions.sort(function (a, b) {
     return new Date(b.timestamp) - new Date(a.timestamp);
   });
-
-  //console.log(answeredQuestions);
 
   return (
     <div>

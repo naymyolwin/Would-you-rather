@@ -2,12 +2,10 @@ import classes from "./AddQuestion.module.css";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveQuestion } from "../../store/saveQuestionActions";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const AddQuestion = (props) => {
   const authUser = useSelector((state) => state.authUser.authUser);
-  //   const questions = useSelector((state) => state.questions.questions);
-  //   const users = useSelector((state) => state.users.users);
 
   const [state, setState] = useState({
     author: authUser,
@@ -16,7 +14,9 @@ const AddQuestion = (props) => {
   });
 
   const dispatch = useDispatch();
-
+  if (authUser === "") {
+    return <Redirect to="/login" />;
+  }
   const inputHandler = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({
@@ -62,24 +62,22 @@ const AddQuestion = (props) => {
           />
         </div>
         <Link to="/">
-          <div>
-            <input
-              disabled={
-                state.optionOneText === ""
-                  ? true
-                  : state.optionTwoText === ""
-                  ? true
-                  : false
-              }
-              className={classes.Submit}
-              type="submit"
-              onClick={submitHandler}
-            />
-          </div>
+          <input
+            disabled={
+              state.optionOneText === ""
+                ? true
+                : state.optionTwoText === ""
+                ? true
+                : false
+            }
+            className={classes.Submit}
+            type="submit"
+            onClick={submitHandler}
+          />
         </Link>
       </form>
     </div>
   );
 };
 
-export default withRouter(AddQuestion);
+export default AddQuestion;

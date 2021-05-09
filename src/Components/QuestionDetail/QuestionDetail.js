@@ -1,22 +1,32 @@
 import classes from "./QuestionDetail.module.css";
 import React, { useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { saveQuestionAnswer } from "../../store/saveQuestionAnswerActions";
 
 const QuestionDetail = () => {
-  const qid = useParams();
+  const { question_id } = useParams();
   const { voted } = useLocation();
   const users = useSelector((state) => state.users.users);
   const questions = useSelector((state) => state.questions.questions);
   const authedUser = useSelector((state) => state.authUser.authUser);
-  const authorID = questions[qid.question_id].author;
-  const QuestionId = questions[qid.question_id].id;
+
   const dispatch = useDispatch();
 
   const [vote, setVote] = useState(voted);
   let [answer, setAnswer] = useState("");
 
+  if (authedUser === "") {
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          // state: { referrer: currentLocation },
+        }}
+      />
+    );
+  }
+  const authorID = questions[question_id].author;
   const inputHandler = (e) => {
     const { value } = e.target;
     setAnswer(value);
@@ -24,7 +34,7 @@ const QuestionDetail = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveQuestionAnswer(authedUser, QuestionId, answer));
+    dispatch(saveQuestionAnswer(authedUser, question_id, answer));
     setAnswer("");
     setVote("true");
     yourVote = answer;
@@ -36,11 +46,11 @@ const QuestionDetail = () => {
 
   const array = Object.values(users).map((user) => {
     const ansObj = Object(user.answers);
-    const result = ansObj.hasOwnProperty(QuestionId);
+    const result = ansObj.hasOwnProperty(question_id);
 
     if (result) {
       const list = [];
-      list.push(user.id, ansObj[QuestionId]);
+      list.push(user.id, ansObj[question_id]);
       return list;
     }
     return null;
@@ -97,7 +107,7 @@ const QuestionDetail = () => {
                 value="optionOne"
                 onChange={inputHandler}
               />
-              {questions[qid.question_id].optionOne.text}
+              {questions[question_id].optionOne.text}
             </label>
             {vote === "true" ? (
               <p className={classes.votePercent}>
@@ -122,7 +132,7 @@ const QuestionDetail = () => {
                 value="optionTwo"
                 onChange={inputHandler}
               />
-              {questions[qid.question_id].optionTwo.text}
+              {questions[question_id].optionTwo.text}
             </label>
             {vote === "true" ? (
               <p className={classes.votePercent}>
