@@ -15,7 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Project Detail
 
 - user can go to Leader Board page either authenticated or not.
-- authenticated user can see list of questions group by answered and unanswered.
+- authenticated user can see list of poll group by answered and unanswered.
 - add button will allow use to create new poll and it will show at unanswered section of user page.
 - user can vote by clicking on unanswered poll, and after voted, it will show the statistic of the poll.
 - if the user click on answered poll, will show the statistic of that poll.
