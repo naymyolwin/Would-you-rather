@@ -7,15 +7,12 @@ import { saveQuestionAnswer } from "../../store/saveQuestionAnswerActions";
 const QuestionDetail = () => {
   const { question_id } = useParams();
   const currentLocation = useLocation();
-  const { voted } = useLocation();
+  let { voted } = useLocation();
   const users = useSelector((state) => state.users.users);
   const questions = useSelector((state) => state.questions.questions);
   const authedUser = useSelector((state) => state.authUser.authUser);
-
   const dispatch = useDispatch();
-
-  const [vote, setVote] = useState(voted);
-  let [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState("");
 
   if (authedUser === "") {
     return (
@@ -44,6 +41,7 @@ const QuestionDetail = () => {
   }
 
   const authorID = questions[question_id].author;
+
   const inputHandler = (e) => {
     const { value } = e.target;
     setAnswer(value);
@@ -53,13 +51,8 @@ const QuestionDetail = () => {
     e.preventDefault();
     dispatch(saveQuestionAnswer(authedUser, question_id, answer));
     setAnswer("");
-    setVote("true");
     yourVote = answer;
   };
-
-  let yourVote = "";
-  let optionOneVote = 0;
-  let optionTwoVote = 0;
 
   const array = Object.values(users).map((user) => {
     const ansObj = Object(user.answers);
@@ -77,8 +70,17 @@ const QuestionDetail = () => {
     return el;
   });
 
+  let yourVote = "";
+  let optionOneVote = 0;
+  let optionTwoVote = 0;
+
+  if (voted === undefined) {
+    voted = "false";
+  }
+
   filtered.forEach((user) => {
     if (user[0] === authedUser) {
+      voted = "true";
       if (user[1] === "optionOne") {
         yourVote = "optionOne";
         optionOneVote++;
@@ -109,15 +111,15 @@ const QuestionDetail = () => {
             <div>{users[authorID].name}</div>
             <div>Would you rather</div>
           </div>
-          {vote === "true" ? <div className={classes.voted}>Voted</div> : null}
+          {voted === "true" ? <div className={classes.voted}>Voted</div> : null}
         </div>
 
         <form className={classes.form}>
           <div className={classes.formcheck}>
             <label className={classes.label}>
               <input
-                defaultChecked={vote === "true" && yourVote === "optionOne"}
-                disabled={vote === "true" ? true : false}
+                defaultChecked={voted === "true" && yourVote === "optionOne"}
+                disabled={voted === "true" ? true : false}
                 type="radio"
                 name="option"
                 className={classes.formInput}
@@ -126,7 +128,7 @@ const QuestionDetail = () => {
               />
               {questions[question_id].optionOne.text}
             </label>
-            {vote === "true" ? (
+            {voted === "true" ? (
               <p className={classes.votePercent}>
                 {optionOneVote}/{optionOneVote + optionTwoVote} voted,{" "}
                 {(
@@ -141,8 +143,8 @@ const QuestionDetail = () => {
           <div className={classes.formcheck}>
             <label className={classes.label}>
               <input
-                defaultChecked={vote === "true" && yourVote === "optionTwo"}
-                disabled={vote === "true" ? true : false}
+                defaultChecked={voted === "true" && yourVote === "optionTwo"}
+                disabled={voted === "true" ? true : false}
                 type="radio"
                 name="option"
                 className={classes.formInput}
@@ -151,7 +153,7 @@ const QuestionDetail = () => {
               />
               {questions[question_id].optionTwo.text}
             </label>
-            {vote === "true" ? (
+            {voted === "true" ? (
               <p className={classes.votePercent}>
                 {optionTwoVote}/{optionOneVote + optionTwoVote} voted,{" "}
                 {(
@@ -164,7 +166,7 @@ const QuestionDetail = () => {
           </div>
         </form>
         <div>
-          {vote === "false" ? (
+          {voted === "false" ? (
             <input
               disabled={answer === "" ? true : false}
               className={classes.submit}
