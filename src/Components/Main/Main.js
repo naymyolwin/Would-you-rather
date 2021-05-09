@@ -2,15 +2,24 @@ import classes from "./Main.module.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import QuestionCard from "../QuestionCard/QuestionCard";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useLocation } from "react-router-dom";
 
 const Main = () => {
   const users = useSelector((state) => state.users.users);
   const authUser = useSelector((state) => state.authUser.authUser);
   const questions = useSelector((state) => state.questions.questions);
 
+  const currentLocation = useLocation();
+
   if (authUser === "") {
-    return <Redirect to="/login" />;
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          state: { referrer: currentLocation.pathname },
+        }}
+      />
+    );
   }
 
   const answeredQuestions = Object.keys(users[authUser].answers).map(

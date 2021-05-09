@@ -2,10 +2,12 @@ import classes from "./AddQuestion.module.css";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveQuestion } from "../../store/saveQuestionActions";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useLocation } from "react-router-dom";
 
 const AddQuestion = (props) => {
   const authUser = useSelector((state) => state.authUser.authUser);
+  const currentLocation = useLocation();
+  //const history = useHistory();
 
   const [state, setState] = useState({
     author: authUser,
@@ -15,7 +17,14 @@ const AddQuestion = (props) => {
 
   const dispatch = useDispatch();
   if (authUser === "") {
-    return <Redirect to="/login" />;
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          state: { referrer: currentLocation.pathname },
+        }}
+      />
+    );
   }
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -25,15 +34,15 @@ const AddQuestion = (props) => {
     }));
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = () => {
+    //e.preventDefault();
     dispatch(saveQuestion(state));
     setState({
       author: "",
       optionOneText: "",
       optionTwoText: "",
     });
-    props.history.push("/");
+    return <Redirect to="/" />;
   };
 
   return (

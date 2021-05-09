@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { authUserActions } from "../../store/authUser-slice";
 import { Redirect } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
   const users = useSelector((state) => state.users.users);
   const authUser = useSelector((state) => state.authUser.authUser);
 
@@ -36,7 +36,10 @@ const Login = () => {
         ))}
     </div>
   ) : (
-    <Redirect to={"/"} />
+    <Redirect
+      to={props.location.state.referrer}
+      //to="/"
+    />
   );
 };
 

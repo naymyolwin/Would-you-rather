@@ -6,6 +6,7 @@ import { saveQuestionAnswer } from "../../store/saveQuestionAnswerActions";
 
 const QuestionDetail = () => {
   const { question_id } = useParams();
+  const currentLocation = useLocation();
   const { voted } = useLocation();
   const users = useSelector((state) => state.users.users);
   const questions = useSelector((state) => state.questions.questions);
@@ -21,11 +22,27 @@ const QuestionDetail = () => {
       <Redirect
         to={{
           pathname: "/login",
-          // state: { referrer: currentLocation },
+          state: { referrer: currentLocation.pathname },
         }}
       />
     );
   }
+
+  const existingQuestion = Object.keys(questions).find(
+    (question) => question === question_id
+  );
+
+  if (existingQuestion === undefined) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/notfound",
+          state: { referrer: currentLocation.pathname },
+        }}
+      />
+    );
+  }
+
   const authorID = questions[question_id].author;
   const inputHandler = (e) => {
     const { value } = e.target;

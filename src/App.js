@@ -29,9 +29,7 @@ const App = () => {
             <Main />
           </Route>
 
-          <Route exact path="/login">
-            <Login />
-          </Route>
+          <Route exact path="/login" render={(props) => <Login {...props} />} />
 
           <Route path="/leaderboard">
             <LeaderBoard />
