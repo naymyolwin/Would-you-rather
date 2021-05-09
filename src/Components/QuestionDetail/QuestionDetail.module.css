@@ -1,0 +1,73 @@
+.Card {
+  margin: 25px auto;
+  width: 70%;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px gray;
+}
+
+.top {
+  display: flex;
+}
+
+.image {
+  margin: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.name {
+  margin: 35px 0;
+  height: 50px;
+  font-weight: bold;
+}
+
+.voted {
+  margin: auto;
+  text-align: center;
+  background-color: darkgreen;
+  color: white;
+  font-weight: 900;
+  width: auto;
+  padding: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.form {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.formcheck {
+  display: flex;
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.label {
+  align-self: flex-start;
+  margin: auto 10px;
+  width: 60%;
+  font-style: italic;
+}
+
+.votePercent {
+  align-self: flex-end;
+}
+
+.submit {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 5px auto;
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
