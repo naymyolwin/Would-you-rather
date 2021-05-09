@@ -12,8 +12,6 @@ import Header from "./Layout/Header";
 import { fetchData } from "./store/fetchInitialDataActions";
 
 const App = () => {
-  //const authUser = useSelector((state) => state.authUser.authUser);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

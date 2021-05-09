@@ -36,10 +36,7 @@ const Login = (props) => {
         ))}
     </div>
   ) : (
-    <Redirect
-      to={props.location.state.referrer}
-      //to="/"
-    />
+    <Redirect to={props.location.state.referrer} />
   );
 };
 

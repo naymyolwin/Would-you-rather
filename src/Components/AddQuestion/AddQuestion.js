@@ -7,7 +7,6 @@ import { Link, Redirect, useLocation } from "react-router-dom";
 const AddQuestion = (props) => {
   const authUser = useSelector((state) => state.authUser.authUser);
   const currentLocation = useLocation();
-  //const history = useHistory();
 
   const [state, setState] = useState({
     author: authUser,
@@ -35,7 +34,6 @@ const AddQuestion = (props) => {
   };
 
   const submitHandler = () => {
-    //e.preventDefault();
     dispatch(saveQuestion(state));
     setState({
       author: "",
